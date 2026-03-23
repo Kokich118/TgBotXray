@@ -1,13 +1,17 @@
 import uuid
 from py3xui import Api
+from dotenv import load_dotenv
+import os
+
+load_dotenv("server.env")
 
 # --- Настройки сервера (замените на свои) ---
-XUI_HOST = "https://169.40.4.70:17253/ZbG1wa6WHfYvSrQPzd"      # Адрес панели
-XUI_USERNAME = "YcVLvRISvi"
-XUI_PASSWORD = "CToXAnhQQp"
-EXTERNAL_IP = "169.40.4.70"               # Внешний IP или домен
+XUI_HOST = os.getenv('URL')      # Адрес панели
+XUI_USERNAME = os.getenv('LOGIN')
+XUI_PASSWORD = os.getenv('PASSWORD')
+EXTERNAL_IP = os.getenv('IP_SERVER')               # Внешний IP или домен
 SERVER_PORT = 25022                              # Порт сервера
-USER_EMAIL = "Артем | Для ноута"                # Email клиента
+USER_EMAIL = "2wuj6zqd"                # Email клиента
 INBOUND_ID = 8                                 # ID inbound правила
 
 # --- Подключение к API ---
@@ -45,7 +49,7 @@ connection_string = (
     f"vless://{user_uuid}@{EXTERNAL_IP}:{SERVER_PORT}"
     f"?type=tcp&security=reality&pbk={public_key}"
     f"&fp=chrome&sni={sni}&sid={short_id}&spx=%2F"
-    f"#MyVPN-{USER_EMAIL}"
+    f"#{USER_EMAIL}"
 )
 
 print(f"Строка подключения: {connection_string}")
