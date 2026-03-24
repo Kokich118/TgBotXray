@@ -3,7 +3,7 @@ from py3xui import Api
 from dotenv import load_dotenv
 import os
 
-load_dotenv("server.env")
+load_dotenv()
 
 # --- Настройки сервера (замените на свои) ---
 XUI_HOST = os.getenv('URL')      # Адрес панели

@@ -3,7 +3,7 @@ import uuid
 from py3xui import Api, Client
 from dotenv import load_dotenv
 
-load_dotenv("server.env")
+load_dotenv()
 
 # --- Настройки сервера
 XUI_URL = os.getenv('URL')
