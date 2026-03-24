@@ -1,8 +1,18 @@
 from aiogram import Bot, Dispatcher
+from dotenv import load_dotenv
+import os
 
-bot = Bot(token="TOKEN")
+from handlers import start
+
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
+
+bot = Bot(token=TOKEN)
 dp = Dispatcher()
+
+dp.include_router(start.router)
 
 # подключение роутеров/хендлеров
 
-dp.run_polling(bot)
+if __name__ == "__main__":
+    dp.run_polling(bot)
