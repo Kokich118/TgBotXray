@@ -9,6 +9,7 @@ from handlers.main_menu import main_menu_router
 from handlers.user_config import user_config_router
 from handlers.xui_add_client import xui_add_client_router
 from handlers.xui_delete_client import xui_delete_client_router
+from handlers.proxy_tg_menu import proxy_tg_menu_router
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -23,6 +24,7 @@ dp.include_router(main_menu_router)
 dp.include_router(user_config_router)
 dp.include_router(xui_add_client_router)
 dp.include_router(xui_delete_client_router)
+dp.include_router(proxy_tg_menu_router)
 
 # подключение роутеров/хендлеров
 
