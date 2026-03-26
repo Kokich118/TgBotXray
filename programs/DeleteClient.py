@@ -10,17 +10,9 @@ XUI_USERNAME = os.getenv('LOGIN')
 XUI_PASSWORD = os.getenv('PASSWORD')
 inbound_id = int(os.getenv('INBOUND_ID'))
 
-def add_client(telegram_name):
+def delete_client(telegram_name):
     api = Api(XUI_URL, XUI_USERNAME, XUI_PASSWORD)
     api.login()
 
-    new_client = Client(
-        id=str(uuid.uuid4()),
-        email=telegram_name,
-        enable=True,
-        total_gb= 0,
-        expiry_time=0,
-        sub_id=telegram_name
-    )
-
-    api.client.add(inbound_id, [new_client])
+    client = api.client.get_by_email(telegram_name)
+    api.client.delete(inbound_id, client.uuid)
