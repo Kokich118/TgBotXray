@@ -4,11 +4,11 @@ from aiogram.filters import Command
 
 from keyboards.main_menu import main_kb
 
-router = Router()
+start_router = Router()
 
-@router.message(Command("start"))
+@start_router.message(Command("start"))
 async def cmd_start(message: Message):
     await message.answer(
-        "Добро пожаловать 👋",
+        "Добро пожаловать в мир свободного интернета! Есть на выбор 2 варианта: создание vpn через наш сервер или могу помочь настроить vpn с помощью WARP",
         reply_markup=main_kb
     )

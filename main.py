@@ -2,7 +2,11 @@ from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
 import os
 
-from handlers import start
+from handlers.start import start_router
+from handlers.xui_server_main import xui_server_main_router
+from handlers.vpn_warp import vpn_warp_router
+from handlers.main_menu import main_menu_router
+from handlers.user_config import user_config_router
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -10,7 +14,11 @@ TOKEN = os.getenv('TOKEN')
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-dp.include_router(start.router)
+dp.include_router(xui_server_main_router)
+dp.include_router(start_router)
+dp.include_router(vpn_warp_router)
+dp.include_router(main_menu_router)
+dp.include_router(user_config_router)
 
 # подключение роутеров/хендлеров
 

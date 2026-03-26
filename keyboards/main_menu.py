@@ -2,8 +2,8 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 main_kb = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text="Кнопка 1")],
-        [KeyboardButton(text="Кнопка 2"), KeyboardButton(text="Кнопка 3")]
+        [KeyboardButton(text="VPN через наш сервер")],
+        [KeyboardButton(text="VPN через WARP")]
     ],
     resize_keyboard=True
 )
